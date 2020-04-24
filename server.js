@@ -1,16 +1,13 @@
 const express = require('express');
-const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const message = require('./models/message')
 const messageRoute = require('./routes/messageRoutes');
 
-require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-app.use(cors());
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -22,7 +19,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(messageRoute);
-app.GET('/message', (req, res, next) => {
+app.get('/message', (req, res, next) => {
     message.find()
     .then(result => {
         res.status(200).send({message: result});
@@ -30,8 +27,7 @@ app.GET('/message', (req, res, next) => {
     .catch(e => console.log(e));
 })
 
-const DB_URI = 
-  `mongodb+srv://bachhongthai:hongthai9@cluster0-qx7x3.mongodb.net/contact?retryWrites=true&w=majority`;
+const DB_URI = `mongodb+srv://bachhongthai:hongthai9@cluster0-qx7x3.mongodb.net/contact?retryWrites=true&w=majority`;
 
 mongoose
 .connect(DB_URI)
