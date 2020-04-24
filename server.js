@@ -27,7 +27,7 @@ app.get('/message', (req, res, next) => {
     .catch(e => console.log(e));
 })
 
-const DB_URI = `mongodb+srv://bachhongthai:hongthai9@cluster0-qx7x3.mongodb.net/contact?retryWrites=true&w=majority`;
+const DB_URI = 'mongodb+srv://bachhongthai:hongthai9@cluster0-qx7x3.mongodb.net/contact?retryWrites=true&w=majority';
 
 mongoose
 .connect(DB_URI)
