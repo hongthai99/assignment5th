@@ -36,6 +36,4 @@ mongoose
 })
 .catch(e => {
       console.log(e);
-})//aloalo ??
-//vaof folder kia cho tao
-// viet cau lenh duoi comment line
+})
