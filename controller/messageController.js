@@ -6,7 +6,7 @@ exports.postMessage = (req, res, next) => {
     const subject = req.body.subject;
     const mess= req.body.message;
     console.log(name, email, subject, mess);
-    const message = new Message({name: name, email: email, subject: subject, mess: mess});
+    const message = new Message({name: name, email: email, subject: subject, message: mess});
     message.save()
     .then(result => {
         res.status(201).send(result);
